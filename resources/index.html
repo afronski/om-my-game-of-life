@@ -17,34 +17,14 @@
     </head>
     <body>
         <article>
-            <aside class="menu">
-                <header id="menu-header"></header>
-            </aside>
-
-            <section id="game" class="board">
-            </section>
-
-            <aside class="events">
-                <header>
-                    <h1>Events</h1>
-                    <div id="events-controls"></div>
-                </header>
-                <ul class="events-list">
-                </ul>
-            </aside>
-
-            <footer class="footer">
-                <p>
-                    <small>afronski (Wojtek Gawroński) &copy; 2015</small>
-                </p>
-                <p>
-                    <small>cljs + om = ♥</small>
-                </p>
-            </footer>
+            <aside id="menu"></aside>
+            <section id="board"></section>
+            <aside id="events"></aside>
         </article>
+        <footer id="footer"></footer>
 
         <script src="js/goog/base.js"></script>
         <script src="js/app.js"></script>
-        <script>goog.require("omgol.core");</script>
+        <script>goog.require("omgol.main");</script>
     </body>
 </html>
