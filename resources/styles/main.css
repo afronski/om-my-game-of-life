@@ -17,46 +17,70 @@ body {
   color: #EAEAEA;
 }
 
-.menu {
-  text-align: center;
-  float: left;
+article {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+}
 
-  width: 200px;
-  min-height: 600px;
+#menu {
+  text-align: center;
+
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
 
   padding-right: 20px;
   border-right: 1px solid #EAEAEA;
 }
 
-.events {
+#events {
   text-align: center;
-  float: right;
 
-  width: 200px;
-  min-height: 600px;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
 
   padding-left: 20px;
   border-left: 1px solid #EAEAEA;
 }
 
-.board {
-  float: left;
-  width: 100%;
+#board {
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  box-flex: 3;
 
-  margin-left: -220px;
-  margin-right: -440px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
 
-  min-height: 600px;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+
+  padding: 20px 0;
 }
 
-.footer {
+#footer {
   text-align: center;
 
   border-top: 1px solid #EAEAEA;
-  clear: both;
 }
 
-.footer p {
+#footer p {
   margin: 0;
   padding: 0;
+}
+
+.playground {
+  background-color: #FFFFFF;
+
+  border: 1px solid #EAEAEA;
+
+  width: 500px;
+  height: 500px;
 }
