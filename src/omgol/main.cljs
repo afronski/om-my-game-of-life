@@ -3,7 +3,7 @@
             [om.dom :as dom :include-macros true]
             [omgol.app-state :as app]
             [omgol.components.menu-component :as menu]
-            [omgol.components.board-component :as game]
+            [omgol.components.board-component :as board]
             [omgol.components.events-list-component :as events]
             [omgol.components.footer-component :as footer]))
 
@@ -22,7 +22,7 @@
  {:target (. js/document (getElementById "menu"))})
 
 (om/root
- game/board-component
+ board/board-component
  app/app-state
  {:target (. js/document (getElementById "board"))})
 

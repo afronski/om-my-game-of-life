@@ -20,7 +20,6 @@ The option `auto` means that it will automatically recompile when any script wil
 
 ## TODO
 
-- Drawing lines.
 - Preview component.
 - Undo / Redo, State Change item.
 - Start / Pause, Clear, Put random glider on board.
