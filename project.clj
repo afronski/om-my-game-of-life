@@ -11,7 +11,7 @@
 
   :source-paths ["src" "target/classes"]
 
-  :clean-targets ["resources/js/app" "resources/js/app.js"]
+  :clean-targets ^{:protect false} ["resources/js/app/" "resources/js/app.js"]
 
   :cljsbuild {
     :builds [{:id "om-my-game-of-life"
