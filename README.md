@@ -20,10 +20,9 @@ The option `auto` means that it will automatically recompile when any script wil
 
 ## TODO
 
-- Preview component.
 - Undo / Redo, State Change item.
 - Start / Pause, Clear, Put random glider on board.
-- Game of Life logic with nicer delay.
 - Drawing game state.
+- Game of Life logic with nicer delay.
 - Mapping game state to events.
 - Previewing on hover for each state change item.

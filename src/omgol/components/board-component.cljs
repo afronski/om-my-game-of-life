@@ -8,8 +8,13 @@
   (reify
     om/IDidMount
     (did-mount [_]
-      (game-logic/initialize-world (get-in app [:main-app :game]) (om/get-node owner))
-      (drawing/fill-cell 1 1 10 "rgb(0,0,0)" (drawing/extract-context (om/get-node owner))))
+      (let [canvas        (om/get-node owner)
+            game-settings (get-in app [:main-app :game])
+            cell-size     (get game-settings :cell-size)
+            color         (get game-settings :alive-color)]
+        (game-logic/initialize-world game-settings canvas)
+        (drawing/fill-cell 1 1 cell-size color (drawing/extract-context canvas))))
+
     om/IRender
     (render [_]
       (let [board-width  (get-in app [:main-app :game :board-width])

@@ -63,6 +63,7 @@ article {
   justify-content: center;
 
   padding: 20px 0;
+  min-height: 500px;
 }
 
 #footer {
@@ -80,7 +81,10 @@ article {
   background-color: #FFFFFF;
 
   border: 1px solid rgb(50, 50, 50);
+}
 
-  width: 500px;
-  height: 500px;
+.preview {
+  background-color: #FFFFFF;
+
+  border: 1px solid rgb(50, 50, 50);
 }

@@ -7,10 +7,11 @@
      {:title "Game of Life"
       :footer "cljs + om = ♥"
       :copyright "afronski (Wojtek Gawroński) - 2015"
-      }
+     }
      :game
      {:board-width 500
       :board-height 500
+      :preview-cell-size 2
       :cell-size 10
       :alive-color "rgb(0, 0, 0)"
       :dead-color "rgb(255, 255, 255)"
