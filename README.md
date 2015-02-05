@@ -21,5 +21,4 @@ The option `auto` means that it will automatically recompile when any script wil
 ## TODO
 
 - Game of Life logic (with nicer delay).
-- Undo / Redo, State Change item.
-- Previewing on hover for each state change item.
+- Undo/Redo implementation.

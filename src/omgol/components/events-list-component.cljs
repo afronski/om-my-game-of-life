@@ -2,13 +2,33 @@
   (:require [om.core :as om :include-macros true]
             [om.dom :as omdom :include-macros true]))
 
-(defn events-list-component [app owner]
+(defn historical-item [item owner]
   (reify
     om/IRender
-    (render [this]
+    (render [_]
+      (omdom/li #js {:className "historical-item"} (:text item)))))
+
+(defn events-list-component [app owner]
+  (defn undo [_]
+    (.info js/console "Undo!"))
+
+  (defn redo [_]
+    (.info js/console "Redo!"))
+
+  (reify
+    om/IInitState
+    (init-state [_]
+      {:history [{:text "Test #1"}
+                 {:text "Test #2"}]})
+
+    om/IRenderState
+    (render-state [_ state]
       (let [events-label (get-in app [:main-app :events :label])]
         (omdom/div nil
           (omdom/header nil
             (omdom/h1 nil events-label)
-            (omdom/div #js {:id "events-controls"} nil))
-          (omdom/ul #js {:className "events-list"} nil))))))
+            (omdom/div #js {:id "events-controls"}
+              (omdom/button #js {:onClick undo} "Undo")
+              (omdom/button #js {:onClick redo} "Redo")))
+          (apply omdom/ul #js {:className "events-list"}
+            (om/build-all historical-item (:history state))))))))
