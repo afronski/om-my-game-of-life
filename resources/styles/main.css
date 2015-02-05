@@ -88,3 +88,25 @@ article {
 
   border: 1px solid rgb(50, 50, 50);
 }
+
+button {
+  border: 0;
+  background: none;
+
+  color: #333333;
+  background-color: #FFFFFF;
+
+  margin: 2px;
+  width: 50px;
+
+  font-family: 'Indie Flower';
+  cursor: pointer;
+}
+
+.insert-glider {
+  width: 104px;
+}
+
+button:hover {
+  background-color: #EAEAEA;
+}

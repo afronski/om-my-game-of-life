@@ -6,14 +6,17 @@
 
 (defn board-component [app owner]
   (reify
+    om/IDidUpdate
+    (did-update [_ _ _]
+      (let [canvas (om/get-node owner)
+            game   (get-in app [:main-app :game])]
+        (game-logic/draw-world game canvas)))
+
     om/IDidMount
     (did-mount [_]
-      (let [canvas        (om/get-node owner)
-            game-settings (get-in app [:main-app :game])
-            cell-size     (get game-settings :cell-size)
-            color         (get game-settings :alive-color)]
-        (game-logic/initialize-world game-settings canvas)
-        (drawing/fill-cell 1 1 cell-size color canvas)))
+      (let [canvas (om/get-node owner)
+            game   (get-in app [:main-app :game])]
+        (game-logic/draw-world game canvas)))
 
     om/IRender
     (render [_]

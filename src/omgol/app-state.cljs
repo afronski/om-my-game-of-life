@@ -16,6 +16,8 @@
       :alive-color "rgb(0, 0, 0)"
       :dead-color "rgb(255, 255, 255)"
       :grid-color "rgb(50, 50, 50)"
+      :simulation-state false
+      :alive-cells [ [10 10] ]
      }
      :events
      {:label "Events"
