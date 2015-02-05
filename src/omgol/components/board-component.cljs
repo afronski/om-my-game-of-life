@@ -5,6 +5,22 @@
             [omgol.drawing :as drawing]))
 
 (defn board-component [app owner]
+  (defn toggle-cell [event]
+    (let [cells     (get-in app [:main-app :game :alive-cells])
+          mouse-x   (.-pageX event)
+          mouse-y   (.-pageY event)
+          canvas    (om/get-node owner)
+          canvas-x  (.-offsetLeft canvas)
+          canvas-y  (.-offsetTop canvas)
+          pixel-x   (- mouse-x canvas-x)
+          pixel-y   (- mouse-y canvas-y)
+          cell-size (get-in app [:main-app :game :cell-size])
+          x         (quot pixel-x cell-size)
+          y         (quot pixel-y cell-size)]
+      (if (= (some #(= [x y] %) cells) true)
+        (om/transact! cells (fn [old-cells] (vec (remove #(= [x y] %) old-cells))))
+        (om/transact! cells #(conj % [x y])))))
+
   (reify
     om/IDidUpdate
     (did-update [_ _ _]
@@ -24,4 +40,5 @@
             board-height (get-in app [:main-app :game :board-height])]
         (omdom/canvas #js {:className "playground"
                            :width board-width
-                           :height board-height})))))
+                           :height board-height
+                           :onClick toggle-cell})))))

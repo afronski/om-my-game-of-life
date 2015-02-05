@@ -20,7 +20,6 @@ The option `auto` means that it will automatically recompile when any script wil
 
 ## TODO
 
-- Clicking should toggle cell (refresh both canvases).
 - Game of Life logic (with nicer delay).
 - Undo / Redo, State Change item.
 - Previewing on hover for each state change item.
