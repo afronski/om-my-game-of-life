@@ -1,20 +1,22 @@
 (ns omgol.drawing)
 
-(defn extract-context [canvas]
+(defn ^{:private true} extract-context [canvas]
   (.getContext canvas "2d"))
 
 (defn ^{:private true} draw-pixel [x y size color context]
   (set! (.-fillStyle context) color)
   (.fillRect context x y size size))
 
-(defn fill-cell [cell-x cell-y size color context]
-  (let [x (* cell-x size)
-        y (* cell-y size)]
+(defn fill-cell [cell-x cell-y size color canvas]
+  (let [x       (* cell-x size)
+        y       (* cell-y size)
+        context (extract-context canvas)]
     (draw-pixel x y size color context)))
 
-(defn draw-grid [context width height pixel-size color]
-  (let [screen-canvas-width (* width pixel-size)
-        screen-canvas-height (* height pixel-size)]
+(defn draw-grid [canvas width height pixel-size color]
+  (let [screen-canvas-width  (* width pixel-size)
+        screen-canvas-height (* height pixel-size)
+        context              (extract-context canvas)]
 
     (.save context)
 

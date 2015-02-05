@@ -8,8 +8,9 @@
     om/IDidMount
     (did-mount [_]
       (let [cell-size (get game-settings :preview-cell-size)
-            color     (get game-settings :alive-color)]
-        (drawing/fill-cell 1 1 cell-size color (drawing/extract-context (om/get-node owner)))))
+            color     (get game-settings :alive-color)
+            canvas    (om/get-node owner)]
+        (drawing/fill-cell 1 1 cell-size color canvas)))
 
     om/IRender
     (render [_]

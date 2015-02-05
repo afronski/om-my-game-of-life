@@ -20,10 +20,9 @@ The option `auto` means that it will automatically recompile when any script wil
 
 ## TODO
 
-- Clicking should toggle cell (refresh both canvases).
 - Start / Pause, Clear, Put random glider on board (and clear).
-- Drawing game state and Game of Life logic.
-- Game of Life logic with nicer delay.
-- Mapping game state to events.
+- Drawing game state (list of coordinates where alive cell is).
+- Clicking should toggle cell (refresh both canvases).
+- Game of Life logic (with nicer delay).
 - Undo / Redo, State Change item.
 - Previewing on hover for each state change item.

@@ -13,7 +13,7 @@
             cell-size     (get game-settings :cell-size)
             color         (get game-settings :alive-color)]
         (game-logic/initialize-world game-settings canvas)
-        (drawing/fill-cell 1 1 cell-size color (drawing/extract-context canvas))))
+        (drawing/fill-cell 1 1 cell-size color canvas)))
 
     om/IRender
     (render [_]
