@@ -21,4 +21,15 @@ The option `auto` means that it will automatically recompile when any script wil
 ## TODO
 
 - Game of Life logic (with nicer delay).
+  - Ticks and state changes in separate place.
+  - `add-watch` facility.
 - Undo/Redo implementation.
+  - `add-watch` facility.
+  - List of historical states and moving on it.
+  - Different style for active one.
+  - Special state for current state.
+  - Block buttons when simulation started.
+- Hovering over change item, should show the state on preview component.
+  - Refactoring preview to local state.
+  - Sending changed state over the channel - in both hovering and actual mode.
+  - Block it when simulation started.
