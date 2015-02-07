@@ -22,5 +22,4 @@
         (when (and (= true started) (= nil id))
           (start-simulation))
         (when (and (= false started) (not= nil id))
-          (stop-simulation))
-        ))))
+          (stop-simulation))))))

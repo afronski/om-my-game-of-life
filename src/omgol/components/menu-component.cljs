@@ -31,10 +31,17 @@
 
 (defn controls [game owner]
   (defn toggle-simulation [_]
-    (om/transact! game :simulation-state #(not %)))
+    (om/transact! game :simulation-state #(not %))
+
+    (when (not= (get game :active-state) nil)
+      (om/update! game :active-state nil)
+      (let [history (get game :history)]
+        (om/update! game :alive-cells (get history (- (count history) 1))))))
 
   (defn clear-board [_]
-    (om/update! game :alive-cells []))
+    (om/update! game :alive-cells [])
+    (om/update! game :history [])
+    (om/update! game :active-state nil))
 
   (defn random-glider [_]
     (clear-board nil)

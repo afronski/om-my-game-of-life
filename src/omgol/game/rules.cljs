@@ -23,9 +23,13 @@
         board-height   (get-in @state [:main-app :game :board-height])
         cell-size      (get-in @state [:main-app :game :cell-size])
         old-cells      (get-in @state [:main-app :game :alive-cells])
-        cells          (atom (get-in @state [:main-app :game :alive-cells]))
+        history        (fn [] (get-in @state [:main-app :game :history]))
+        cells          (atom old-cells)
         cells-x        (/ board-width cell-size)
         cells-y        (/ board-height cell-size)]
+    (when (= (count (history)) 0)
+      (swap! state assoc-in [:main-app :game :history] (conj (history) old-cells)))
+
     (dotimes [x cells-x]
       (dotimes [y cells-y]
         (let [neighbours (count-neighbours x y cells-x cells-y old-cells)
@@ -35,4 +39,6 @@
               (kill-cell x y cells))
             (when (= neighbours 3)
               (resurrect-cell x y cells))))))
+
+    (swap! state assoc-in [:main-app :game :history] (conj (history) @cells))
     (swap! state assoc-in [:main-app :game :alive-cells] @cells)))

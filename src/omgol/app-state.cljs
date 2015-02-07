@@ -20,6 +20,8 @@
       :simulation-id nil
       :interval 200
       :alive-cells []
+      :history []
+      :active-state nil
      }
      :events
      {:label "Events"

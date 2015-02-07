@@ -6,7 +6,7 @@ I always wanted to do something with use of *Om* and *ClojureScript*, and here i
 
 `cljs + om = ♥`
 
-It is a part of lecture for Meet.js meeting in Katowice (performed at 11.02.2015). You can find slides [here](http://afronski.pl/presentations/).
+It is a part of lecture for Meet.js meetup in Katowice (performed at 11.02.2015). You can find slides [here](http://afronski.pl/presentations/).
 
 ## How to start?
 
@@ -16,15 +16,4 @@ First, you need to compile the *ClojureScript* to *JS* with:
 $ lein cljsbuild auto
 ```
 
-The option `auto` means that it will automatically recompile when any script will change. Then you can open file from `resources/index.html` in your browser of choice.
-
-## TODO
-
-- Undo/Redo implementation.
-  - `add-watch` facility.
-  - List of historical states and moving on it.
-  - Different style for active one.
-  - Special state for current state.
-- Hovering over change item, should show the state on preview component.
-  - Refactoring preview to local state.
-  - Sending changed state over the channel - in both hovering and actual mode.
+Option `auto` means that it will automatically recompile when any script will change. Then you can open file from `resources/index.html` in your browser of choice.
