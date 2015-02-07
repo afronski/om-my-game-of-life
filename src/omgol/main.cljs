@@ -5,7 +5,8 @@
             [omgol.components.menu-component :as menu]
             [omgol.components.board-component :as board]
             [omgol.components.events-list-component :as events]
-            [omgol.components.footer-component :as footer]))
+            [omgol.components.footer-component :as footer]
+            [omgol.game.simulation :as simulation]))
 
 ; Interop with JS examples ;).
 
@@ -13,6 +14,9 @@
 
 (.log js/console "Welcome to Game of Life!")
 (.log js/console "cljs + om = ♥")
+
+; Bootstrapping simulation logic.
+(simulation/bootstrap app/app-state)
 
 ; Rooting multiple components.
 

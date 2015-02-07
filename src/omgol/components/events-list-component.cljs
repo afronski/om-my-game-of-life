@@ -23,12 +23,13 @@
 
     om/IRenderState
     (render-state [_ state]
-      (let [events-label (get-in app [:main-app :events :label])]
+      (let [events-label     (get-in app [:main-app :events :label])
+            simulation-state (get-in app [:main-app :game :simulation-state])]
         (omdom/div nil
           (omdom/header nil
             (omdom/h1 nil events-label)
             (omdom/div #js {:id "events-controls"}
-              (omdom/button #js {:onClick undo} "Undo")
-              (omdom/button #js {:onClick redo} "Redo")))
+              (omdom/button #js {:onClick undo :disabled simulation-state} "Undo")
+              (omdom/button #js {:onClick redo :disabled simulation-state} "Redo")))
           (apply omdom/ul #js {:className "events-list"}
             (om/build-all historical-item (:history state))))))))

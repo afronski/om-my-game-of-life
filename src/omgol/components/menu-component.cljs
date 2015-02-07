@@ -57,10 +57,10 @@
             (if simulation-state
               (omdom/button attributes (get state :started-label))
               (omdom/button attributes (get state :paused-label)))
-            (omdom/button #js {:onClick clear-board} (get state :clear-label)))
+            (omdom/button #js {:onClick clear-board :disabled simulation-state} (get state :clear-label)))
           (omdom/div nil
             (omdom/button
-             #js {:className "insert-glider" :onClick random-glider}
+             #js {:className "insert-glider" :onClick random-glider :disabled simulation-state}
              (get state :insert-glider))))))))
 
 (defn menu-component [app owner]

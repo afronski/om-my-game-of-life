@@ -118,6 +118,10 @@ button:hover {
   background-color: #EAEAEA;
 }
 
+button[disabled] {
+  opacity: 0.5;
+}
+
 .events-list {
   margin: 0;
   padding: 0;

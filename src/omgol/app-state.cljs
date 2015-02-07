@@ -17,6 +17,8 @@
       :dead-color "rgb(255, 255, 255)"
       :grid-color "rgb(50, 50, 50)"
       :simulation-state false
+      :simulation-id nil
+      :interval 1000
       :alive-cells [ [10 10] ]
      }
      :events
