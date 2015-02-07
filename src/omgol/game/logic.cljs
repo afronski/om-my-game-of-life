@@ -9,21 +9,10 @@
         grid      (get game :grid-color)]
     (drawing/draw-grid canvas width height cell-size grid)))
 
-(defn ^{:private true} clear-canvas [cell-size game canvas]
-  (let [dead       (get game :dead-color)
-        width      (get game :board-width)
-        height     (get game :board-height)
-        pixel-size (get game :cell-size)
-        cells-x    (/ width pixel-size)
-        cells-y    (/ height pixel-size)]
-    (dotimes [x cells-x]
-      (dotimes [y cells-y]
-        (drawing/fill-cell x y cell-size dead canvas)))))
-
 (defn ^{:private true} draw [cell-size game canvas]
   (let [alive     (get game :alive-color)
         cells     (get game :alive-cells)]
-    (clear-canvas cell-size game canvas)
+    (drawing/clear-canvas canvas)
     (doseq [pair cells]
       (drawing/fill-cell (first pair) (second pair) cell-size alive canvas))))
 

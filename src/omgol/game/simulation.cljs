@@ -1,19 +1,16 @@
 (ns omgol.game.simulation
-  (:require [om.core :as om :include-macros true]))
+  (:require [omgol.game.rules :as rules]))
 
 (defn bootstrap [state]
   (defn tick []
-    (.warn js/console "Tick!"))
+    (rules/single-step state))
 
   (defn start-simulation []
-    (.info js/console "Start!")
     (let [interval (get-in @state [:main-app :game :interval])]
-      (.log js/console state interval)
       (swap! state assoc-in [:main-app :game :simulation-id]
         (js/setInterval tick interval))))
 
   (defn stop-simulation []
-    (.info js/console "Stop!")
     (let [id (get-in @state [:main-app :game :simulation-id])]
       (js/clearInterval id)
       (swap! state assoc-in [:main-app :game :simulation-id] nil)))

@@ -20,7 +20,7 @@
           y                (quot pixel-y cell-size)]
       (when-not simulation-state
         (if (= (some #(= [x y] %) cells) true)
-          (om/transact! cells (fn [old-cells] (vec (remove #(= [x y] %) old-cells))))
+          (om/transact! cells (fn [old] (vec (remove #(= [x y] %) old))))
           (om/transact! cells #(conj % [x y]))))))
 
   (reify

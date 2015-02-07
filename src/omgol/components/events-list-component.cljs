@@ -29,7 +29,13 @@
           (omdom/header nil
             (omdom/h1 nil events-label)
             (omdom/div #js {:id "events-controls"}
-              (omdom/button #js {:onClick undo :disabled simulation-state} "Undo")
-              (omdom/button #js {:onClick redo :disabled simulation-state} "Redo")))
+              (omdom/button
+               #js {:onClick undo
+                    :disabled simulation-state}
+               "Undo")
+              (omdom/button
+               #js {:onClick redo
+                    :disabled simulation-state}
+               "Redo")))
           (apply omdom/ul #js {:className "events-list"}
             (om/build-all historical-item (:history state))))))))

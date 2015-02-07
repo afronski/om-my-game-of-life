@@ -7,6 +7,12 @@
   (set! (.-fillStyle context) color)
   (.fillRect context x y size size))
 
+(defn clear-canvas [canvas]
+  (let [context (extract-context canvas)
+        width   (.-width canvas)
+        height  (.-height canvas)]
+    (.clearRect context 0 0 width height)))
+
 (defn fill-cell [cell-x cell-y size color canvas]
   (let [x       (* cell-x size)
         y       (* cell-y size)
