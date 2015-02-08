@@ -47,12 +47,10 @@
       (let [events-label     (get-in app [:main-app :events :label])
             simulation-state (get-in app [:main-app :game :simulation-state])
             history          (get-in app [:main-app :game :history])
-
             active-state     (get-in app [:main-app :game :active-state])
             active           (if (= active-state nil)
                                (- (count history) 1)
                                active-state)
-
             prepare-history  (fn [idx item] {:idx idx :state item :active active})]
         (omdom/div nil
           (omdom/header nil
