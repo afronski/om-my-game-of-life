@@ -22,6 +22,4 @@ Option `auto` means that it will automatically recompile when any script will ch
 
 ## Improvements
 
-- Blocking ability to add new cells when undo is active.
-- Adding new cells should add events when you already have history.
 - Performance.

@@ -15,10 +15,12 @@
           canvas-y         (.-offsetTop canvas)
           pixel-x          (- mouse-x canvas-x)
           pixel-y          (- mouse-y canvas-y)
+          history          (get-in app [:main-app :game :history])
           cell-size        (get-in app [:main-app :game :cell-size])
           x                (quot pixel-x cell-size)
           y                (quot pixel-y cell-size)]
-      (when-not simulation-state
+      (when (and (not simulation-state)
+                 (= (count history) 0))
         (if (= (some #(= [x y] %) cells) true)
           (om/transact! cells (fn [old] (vec (remove #(= [x y] %) old))))
           (om/transact! cells #(conj % [x y]))))))
